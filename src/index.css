@@ -67,8 +67,10 @@ main {
   flex-wrap: wrap;
 }
 
-.forecast-seven-days-wrapper {
+.forecast-seven-days-container {
   display: inline-block;
+  max-width: 660px;
+  width: 100%;
   box-shadow: 0 4px 4px rgba(4, 5, 73, 0.25), 14px 14px 20px rgba(5, 6, 114, 0.2);
   border-radius: 8px;
   background-color: #fff;
@@ -76,13 +78,13 @@ main {
   margin: 0 17px 200px;
   align-self: end;
 }
-.forecast-seven-days-wrapper .select:nth-last-child(1) {
+.forecast-seven-days-container .select:nth-last-child(1) {
   display: none;
 }
-.forecast-seven-days-wrapper:nth-of-type(2) .select:nth-last-child(1) {
+.forecast-seven-days-container:nth-of-type(2) .select:nth-last-child(1) {
   display: block;
 }
-.forecast-seven-days-wrapper:nth-of-type(2) .weather-card-list {
+.forecast-seven-days-container:nth-of-type(2) .weather-card-list {
   display: none;
 }
 
@@ -169,7 +171,6 @@ input[type=date]{
 }
 
 .weather-card-item {
-  max-width: 174px;
   padding: 20px;
   background: #373AF5;
   border: 2px solid #373AF5;
@@ -185,7 +186,17 @@ input[type=date]{
 .weather-card-item:nth-of-type(2) {
   margin: 0 10px;
 }
+.weather-icon {
+  display: block;
+  margin: 0 auto;
+}
+
+.time {
+  display: block;
+}
+
 .temperature {
+  margin: 0;
   font-size: 32px;
   line-height: 32px;
   text-align: right;
