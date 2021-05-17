@@ -1,11 +1,14 @@
 import React from 'react'
-import {Navbar} from "./components/Navbar";
+import {ForecastSevenDays} from "./components/ForecastSevenDays";
+import {ForecastOneDay} from "./components/ForecastOneDay";
 
 const App: React.FC = () => {
-  return <>
-        <h1>weather-forecast</h1>
-        <Navbar />
-      </>
+  return    <main>
+                <h1 className='title' >Weather forecast</h1>
+                <ForecastSevenDays />
+                <ForecastOneDay />
+                <span>C ЛЮБОВЬЮ ОТ MERCURY DEVELOPMENT</span>
+            </main>
 
 }
 
