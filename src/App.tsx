@@ -9,7 +9,7 @@ const App: React.FC = () => {
             <ForecastSevenDays/>
             <ForecastOneDay/>
         </div>
-        <p>C ЛЮБОВЬЮ ОТ MERCURY DEVELOPMENT</p>
+        <p>C любовью от mercury development</p>
     </main>
 
 }
