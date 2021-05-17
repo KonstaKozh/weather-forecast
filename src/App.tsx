@@ -9,9 +9,8 @@ const App: React.FC = () => {
             <ForecastSevenDays/>
             <ForecastOneDay/>
         </div>
-        <p>C любовью от mercury development</p>
+        <p className='main__p'>C любовью от mercury development</p>
     </main>
-
 }
 
 export default App

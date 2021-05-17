@@ -39,12 +39,12 @@ html {
 body {
   min-height: 100%;
   margin: 0;
-  background: #373AF5 url("img/bg.svg") no-repeat;
-  background-size: cover;
 }
 
 main {
   padding: 65px 40px 16px;
+  background: #373AF5 url("img/bg.svg") no-repeat;
+  background-size: cover;
 }
 
 .title {
@@ -67,7 +67,7 @@ main {
   flex-wrap: wrap;
 }
 
-.forecast-seven-days-container {
+.forecast-container {
   display: inline-block;
   max-width: 660px;
   width: 100%;
@@ -78,17 +78,17 @@ main {
   margin: 0 17px 200px;
   align-self: end;
 }
-.forecast-seven-days-container .select:nth-last-child(1) {
+.forecast-container .select:nth-last-child(1) {
   display: none;
 }
-.forecast-seven-days-container:nth-of-type(2) .select:nth-last-child(1) {
+.forecast-container:nth-of-type(2) .select:nth-last-child(1) {
   display: block;
 }
-.forecast-seven-days-container:nth-of-type(2) .weather-card-list {
+.forecast-container:nth-of-type(2) .weather-card-list {
   display: none;
 }
 
-h2 {
+.forecast-container__h2 {
   font-family: Ubuntu, sans-serif;
   font-style: normal;
   font-weight: bold;
@@ -143,7 +143,7 @@ input[type=date]{
   justify-content: center;
 }
 
-.weather-card p {
+.weather-card__p {
   font-family: Ubuntu, sans-serif;
   font-style: normal;
   font-weight: bold;
@@ -206,7 +206,7 @@ input[type=date]{
   background: #8083A4;
 }
 
-p {
+.main__p {
   text-transform: uppercase;
   text-align: center;
   font-size: 14px;
