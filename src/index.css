@@ -82,6 +82,9 @@ main {
 .forecast-seven-days-wrapper:nth-of-type(2) .select:nth-last-child(1) {
   display: block;
 }
+.forecast-seven-days-wrapper:nth-of-type(2) .weather-card-list {
+  display: none;
+}
 
 h2 {
   font-family: Ubuntu, sans-serif;
