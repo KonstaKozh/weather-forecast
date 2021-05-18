@@ -1,7 +1,7 @@
 import React from "react"
-import img from '../img/light-rain-icon.svg'
+import img from '../../img/light-rain-icon.svg'
 
-export const WeatherCardItem: React.FunctionComponent = () => {
+export const ForecastCardItem: React.FunctionComponent = () => {
     return (
         <div className='weather-card-item'>
             <time className='time'>27 sep 2021</time>

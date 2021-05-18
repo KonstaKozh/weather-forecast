@@ -1,6 +1,6 @@
 import React from 'react'
-import {ForecastSevenDays} from "./components/ForecastSevenDays";
-import {ForecastOneDay} from "./components/ForecastOneDay";
+import {ForecastSevenDays} from "./components/ForecastSevenDays/ForecastSevenDays";
+import {ForecastOneDay} from "./components/ForecastOneDay/ForecastOneDay";
 
 const App: React.FC = () => {
     return <main>

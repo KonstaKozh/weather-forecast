@@ -67,72 +67,12 @@ main {
   flex-wrap: wrap;
 }
 
-.forecast-container {
-  display: inline-block;
-  max-width: 660px;
-  width: 100%;
-  box-shadow: 0 4px 4px rgba(4, 5, 73, 0.25), 14px 14px 20px rgba(5, 6, 114, 0.2);
-  border-radius: 8px;
-  background-color: #fff;
-  padding: 60px;
-  margin: 0 17px 200px;
-  align-self: end;
-}
-.forecast-container .select:nth-last-child(1) {
-  display: none;
-}
-.forecast-container:nth-of-type(2) .select:nth-last-child(1) {
-  display: block;
-}
-.forecast-container:nth-of-type(2) .weather-card-list {
-  display: none;
-}
 
-.forecast-container__h2 {
-  font-family: Ubuntu, sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 32px;
-  line-height: 32px;
-  color: #2C2D76;
-}
 
-.form-box {
-  display: flex;
-  justify-content: space-between;
-}
 
-.select {
-  max-width: 250px;
-  padding: 12px 16px;
-  width: 100%;
-  font-size: 16px;
-  line-height: 24px;
-  cursor: pointer;
-  appearance: none;
-  background: url('./img/chevron-bottom.svg') rgba(128, 131, 164, 0.06) no-repeat 92% 50%;
-  border: 2px solid rgba(128, 131, 164, 0.2);
-  box-sizing: border-box;
-  border-radius: 8px;
-  margin-bottom: 50px;
-}
-.select:nth-last-child(1) {
-  margin-left: 40px;
-}
-.option {
-  padding: 10px;
-}
 
-input[type=date]{
-  background:url("./img/icon-date.svg") #f7f9fc no-repeat 92% 50%;
-}
-[type="date"]::-webkit-inner-spin-button {
-  display: none;
-}
-[type="date"]::-webkit-calendar-picker-indicator {
-  opacity: 0;
-  cursor: pointer;
-}
+
+
 
 .weather-card {
   min-height: 210px;

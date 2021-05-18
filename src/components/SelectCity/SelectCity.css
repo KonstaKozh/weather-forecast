@@ -1,0 +1,21 @@
+.select {
+    max-width: 250px;
+    padding: 12px 16px;
+    width: 100%;
+    font-family: Ubuntu, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    cursor: pointer;
+    appearance: none;
+    background: url('../../img/chevron-bottom.svg') rgba(128, 131, 164, 0.06) no-repeat 92% 50%;
+    border: 2px solid rgba(128, 131, 164, 0.2);
+    box-sizing: border-box;
+    border-radius: 8px;
+    margin-bottom: 50px;
+    color: #8083A4;
+}
+.option {
+    padding: 10px;
+}

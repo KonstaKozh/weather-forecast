@@ -1,12 +1,12 @@
 import React from "react"
-import {WeatherCardItem} from "./WeatherCardItem";
+import {ForecastCardItem} from "../ForecastCardItem/ForecastCardItem";
 
-export const WeatherCardList: React.FunctionComponent = () => {
+export const ForecastCardList: React.FunctionComponent = () => {
     return (
         <div className='weather-card-list'>
-            <WeatherCardItem/>
-            <WeatherCardItem/>
-            <WeatherCardItem/>
+            <ForecastCardItem/>
+            <ForecastCardItem/>
+            <ForecastCardItem/>
             <div className='weather-card'>
                 <p className='weather-card__p'>Fill in all the fields and the weather will be displayed</p>
             </div>
