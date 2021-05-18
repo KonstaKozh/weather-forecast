@@ -46,4 +46,7 @@
     .weather-card-list:after {
         display: none;
     }
+    .weather-card-list::-webkit-scrollbar {
+        display: none;
+    }
 }
