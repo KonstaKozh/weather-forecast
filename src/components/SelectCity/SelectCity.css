@@ -16,6 +16,13 @@
     margin-bottom: 50px;
     color: #8083A4;
 }
-.option {
-    padding: 10px;
+/*.option {*/
+/*    padding: 10px;*/
+/*}*/
+
+@media only screen and (max-width: 420px) {
+    .select {
+        margin-bottom: 24px;
+    }
 }
+

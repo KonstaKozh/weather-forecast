@@ -3,15 +3,46 @@
     justify-content: space-between;
     position: relative;
 }
+
 .weather-card-list:before {
     position: absolute;
     top: 45%;
     left: -24px;
     content: url("../../img/arrow-left.svg");
 }
+
 .weather-card-list:after {
     position: absolute;
     top: 45%;
     right: -24px;
     content: url("../../img/arrow-right.svg");
+}
+
+.weather-card-blank {
+    min-height: 210px;
+    background: url("../../img/preview-img-bg.svg") no-repeat;
+    background-position-x: center;
+    display: none;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.weather-card-blank__p {
+    font-family: Ubuntu, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+    color: #8083A4;
+}
+
+@media only screen and (max-width: 860px) {
+    .weather-card-list {
+        scroll-snap-type: x mandatory;
+        overflow-x: auto;
+    }
+    .weather-card-list:before,
+    .weather-card-list:after {
+        display: none;
+    }
 }

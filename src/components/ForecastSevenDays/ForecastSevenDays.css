@@ -1,12 +1,12 @@
 .forecast-container {
-    display: inline-block;
     max-width: 660px;
+    min-width: 300px;
     width: 100%;
     box-shadow: 0 4px 4px rgba(4, 5, 73, 0.25), 14px 14px 20px rgba(5, 6, 114, 0.2);
     border-radius: 8px;
     background-color: #fff;
     padding: 60px;
-    margin: 0 17px 200px;
+    margin: 0 17px 34px;
     align-self: end;
 }
 
@@ -17,10 +17,27 @@
     font-size: 32px;
     line-height: 32px;
     color: #2C2D76;
+    padding-bottom: 32px;
 }
 
 .form-box {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    padding-bottom: 32px;
 }
+
+@media only screen and (max-width: 420px) {
+    .forecast-container__h2 {
+        padding-bottom: 24px;
+    }
+    .forecast-container {
+        padding: 24px 24px 60px;
+        margin: 0 17px 8px;
+    }
+    .form-box {
+        padding-bottom: 0;
+    }
+}
+
