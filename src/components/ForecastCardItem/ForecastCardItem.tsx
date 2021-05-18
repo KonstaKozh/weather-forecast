@@ -1,5 +1,6 @@
 import React from "react"
 import img from '../../img/light-rain-icon.svg'
+import './ForecastCardItem.css'
 
 export const ForecastCardItem: React.FunctionComponent = () => {
     return (

@@ -1,0 +1,17 @@
+.weather-card-list {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+.weather-card-list:before {
+    position: absolute;
+    top: 45%;
+    left: -24px;
+    content: url("../../img/arrow-left.svg");
+}
+.weather-card-list:after {
+    position: absolute;
+    top: 45%;
+    right: -24px;
+    content: url("../../img/arrow-right.svg");
+}

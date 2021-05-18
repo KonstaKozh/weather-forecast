@@ -1,5 +1,6 @@
 import React from "react"
 import {ForecastCardItem} from "../ForecastCardItem/ForecastCardItem";
+import './ForecastCardList.css'
 
 export const ForecastCardList: React.FunctionComponent = () => {
     return (
