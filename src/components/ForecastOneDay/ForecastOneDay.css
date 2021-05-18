@@ -1,5 +1,3 @@
-/*@media only screen and (max-width: 420px) {*/
-/* .weather-card-item {*/
-/*     !*margin-bottom: 30px;*!*/
-/* }*/
-/*}*/
+.weather-card-blank-oneday {
+    display: none;
+}
