@@ -28,6 +28,7 @@
 }
 
 .weather-card-blank__p {
+    text-align: center;
     font-family: Ubuntu, sans-serif;
     font-style: normal;
     font-weight: bold;
