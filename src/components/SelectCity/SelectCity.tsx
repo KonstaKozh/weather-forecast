@@ -3,16 +3,15 @@ import './SelectCity.css'
 
 export const SelectCity: React.FunctionComponent = () => {
 
-    const [addrtype, setAddrtype] = useState(['Самара', 'Тольятти', 'Саратов', 'Казань', 'Краснодар'])
-    const Add = addrtype.map(Add => Add )
+    const [city, setСity] = useState(['Самара', 'Тольятти', 'Саратов', 'Казань', 'Краснодар'])
     const handleCitySelect = (e: any) => {
-        console.log(e.target)
+        console.log(city[e.target.value])
     }
     return (
-        <select className='select' onChange={(e) => handleCitySelect(e)}>
-            <option selected disabled hidden>Select city</option>
+        <select className='select' onChange={e => handleCitySelect(e)}>
+            {/*<option selected disabled hidden value='1'>Select city</option>*/}
             {
-                Add.map((address, key) => <option key={key}value={key}>{address}</option>)
+                city.map((address, key) => <option key={key} value={key}>{address}</option>)
             }
         </select>
     )
