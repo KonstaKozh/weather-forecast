@@ -8,8 +8,9 @@ const handlers = {
     [CLEAR_WEATHERS]: state => ({...state, weathers: []}),
     DEFAULT: state => state
 }
-
-export const openweathermapReducer: React.FunctionComponent = (state, action) => {
-   const handler = handlers[action.types] || handlers.DEFAULT
+//action: {type: CLEAR_WEATHERS}
+export const weatherForecastReducer: React.FunctionComponent = (state, action) => {
+   // @ts-ignore
+    const handler = handlers[action.type] || handlers.DEFAULT // handler = state => ({...state, weathers: []})
     return handler(state, action)
 }

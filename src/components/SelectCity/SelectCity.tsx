@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import './SelectCity.css'
 import {cities} from '../../cityData.json'
-import {fetchWeatherData} from '../../context/openweathermap/OpenweathermapState'
+import {WeatherForecastContext} from "../../context/weatherForecast/weatherForecastContext";
 
 
 export const SelectCity: React.FunctionComponent = () => {
