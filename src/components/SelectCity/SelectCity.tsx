@@ -1,28 +1,30 @@
 import React, {useState} from "react"
 import './SelectCity.css'
 import {cities} from '../../cityData.json'
+import {fetchWeatherData} from '../../context/openweathermap/OpenweathermapState'
+
 
 export const SelectCity: React.FunctionComponent = () => {
 
     // const [loading, setLoading] = useState(false)
     const [data, setData] = useState({})
-    const keyAPI: string = '3271c2ed7c22a57273a4549fd585d36f'
+    // const keyAPI: string = '3271c2ed7c22a57273a4549fd585d36f'
 
     const handleCitySelect = (e: any) => {
         const selectedCity = cities[e.target.value]
         fetchWeatherData(selectedCity)
     }
 
-    const fetchWeatherData = async (city: { name?: string; id?: number; coordinates: any }) => {
-        const {lat, lon} = city.coordinates
-        const url: string = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${keyAPI}`;
-        // setLoading(true)
-        const result = await fetch(url)
-        const data = await result.json()
-        console.log(data.daily)
-        setData(data.daily)
-        // setLoading(false)
-    }
+    // const fetchWeatherData = async (city: { name?: string; id?: number; coordinates: any }) => {
+    //     const {lat, lon} = city.coordinates
+    //     const url: string = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${keyAPI}`;
+    //     // setLoading(true)
+    //     const result = await fetch(url)
+    //     const data = await result.json()
+    //     console.log(data.daily)
+    //     setData(data.daily)
+    //     // setLoading(false)
+    // }
 
 
     return (

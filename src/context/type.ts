@@ -1,0 +1,6 @@
+export const CLEAR_WEATHERS = 'CLEAR_WEATHERS'
+export const GET_WEATHERS = 'GET_WEATHERS'
+export const SET_LOADING = 'SET_LOADING'
+export const SELECT_CITY = 'SELECT_CITY'
+
+
