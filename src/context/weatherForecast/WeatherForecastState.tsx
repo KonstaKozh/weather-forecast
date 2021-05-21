@@ -54,6 +54,30 @@ export const WeatherForecastState: React.FunctionComponent = ({children}) => {
         })
     }
 
+    const fetchWeatherDate = async (city: { name?: string; id?: number; coordinates: any }) => {
+        setLoading()
+        const {lat, lon} = city.coordinates
+        const url: string = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${keyAPI}`;
+        const result = await fetch(url)
+        const weathers = await result.json()
+        weathers.daily.length = 7
+        const selectedCity = city
+        console.log(weathers.daily[0].weather[0].icon, selectedCity)
+
+        // setData(data.daily)
+        //@ts-ignore
+        dispatch({
+            type: GET_WEATHERS,
+            payload: weathers.daily
+        })
+
+        // @ts-ignore
+        dispatch({
+            type: SELECT_CITY,
+            payload: selectedCity
+        })
+    }
+
 
 
     const clearWeathers = () => {
