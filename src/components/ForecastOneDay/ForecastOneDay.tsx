@@ -1,6 +1,6 @@
 import React from "react"
 import {ForecastCardItem} from "../ForecastCardItem/ForecastCardItem"
-import {SelectDate} from "../SelectDate/SelectDate";
+import {SelectedDate} from "../SelectDate/SelectDate";
 import {SelectCity} from "../SelectCity/SelectCity";
 import './ForecastOneDay.css'
 
@@ -9,7 +9,7 @@ export const ForecastOneDay: React.FunctionComponent = () => {
         <h2 className='forecast-container__h2'>Forecast for a Date in the Past</h2>
         <form action="#" className='form-box'>
             <SelectCity />
-            <SelectDate />
+            <SelectedDate />
         </form>
         <ForecastCardItem/>
         <div className='weather-card-blank weather-card-blank-oneday'>

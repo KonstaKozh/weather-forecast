@@ -30,7 +30,7 @@ export const WeatherForecastState: React.FunctionComponent = ({children}) => {
     // @ts-ignore
     const [state, dispatch] = useReducer(weatherForecastReducer, initialState)
 
-    const fetchWeatherData = async (city: { name?: string; id?: number; coordinates: any }) => {
+    const fetchWeatherCity = async (city: { name?: string; id?: number; coordinates: any }) => {
         setLoading()
         const {lat, lon} = city.coordinates
         const url: string = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${keyAPI}`;
@@ -54,6 +54,8 @@ export const WeatherForecastState: React.FunctionComponent = ({children}) => {
         })
     }
 
+
+
     const clearWeathers = () => {
         console.log("clear_weather");
         //@ts-ignore
@@ -67,7 +69,7 @@ export const WeatherForecastState: React.FunctionComponent = ({children}) => {
     return (
         <WeatherForecastContext.Provider
             value = {{
-            setLoading, fetchWeatherData, clearWeathers,
+            setLoading, fetchWeatherCity, clearWeathers,
                 selectedCity, selectedDate, loading, weathers
         }}>
             {children}

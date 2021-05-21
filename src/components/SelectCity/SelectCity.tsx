@@ -5,17 +5,14 @@ import {WeatherForecastContext} from "../../context/weatherForecast/weatherForec
 
 
 export const SelectCity: React.FunctionComponent = () => {
-        const context = useContext(WeatherForecastContext);
-    // const [loading, setLoading] = useState(false)
-    const [data, setData] = useState({})
-    // const keyAPI: string = '3271c2ed7c22a57273a4549fd585d36f'
+        const context = useContext(WeatherForecastContext)
+        // const [data, setData] = useState({})
 
     const handleCitySelect = (e: any) => {
         const selectedCity = cities[e.target.value]
         // @ts-ignore
-        context.fetchWeatherData(selectedCity)
+        context.fetchWeatherCity(selectedCity)
     }
-
 
     return (
         <select className='select' onChange={e => handleCitySelect(e)}>
