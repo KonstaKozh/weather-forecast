@@ -3,7 +3,7 @@ import {CLEAR_WEATHERS, GET_WEATHERS, SELECT_CITY, SET_LOADING} from "../type";
 
 const handlers = {
     // @ts-ignore
-    [SELECT_CITY]: (state, {payload}) => ({...state, city: payload, loading: false}),
+    [SELECT_CITY]: (state, {payload}) => ({...state, selectedCity: payload, loading: false}),
     // @ts-ignore
     [GET_WEATHERS]: (state, {payload}) => ({...state, weathers: payload, loading: false}),
     // @ts-ignore

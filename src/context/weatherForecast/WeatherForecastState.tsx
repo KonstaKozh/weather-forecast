@@ -1,8 +1,7 @@
 import React, {useReducer} from "react"
 import {WeatherForecastContext} from "./weatherForecastContext";
 import {weatherForecastReducer} from "./weatherForecastReducer";
-import {CLEAR_WEATHERS, GET_WEATHERS, SET_LOADING} from "../type";
-import {log} from "util";
+import {CLEAR_WEATHERS, GET_WEATHERS, SET_LOADING, SELECT_CITY} from "../type";
 
 // const CLIENT_KEY = process.env.REACT_APP_CLIENT_KEY
 const keyAPI: string = '3271c2ed7c22a57273a4549fd585d36f'
@@ -16,17 +15,17 @@ type WeatherForecastState = {
             lon: string;
         }
     };
-    selectedDate: string;
+    selectedDate: Date;
     loading: boolean;
-    forecast: any[]
+    weathers: []
 }
 
 export const WeatherForecastState: React.FunctionComponent = ({children}) => {
     const initialState: WeatherForecastState = {
         selectedCity: undefined,
-        selectedDate: '',
+        selectedDate: new Date(),
         loading: false,
-        forecast: []
+        weathers: []
     }
     // @ts-ignore
     const [state, dispatch] = useReducer(weatherForecastReducer, initialState)
@@ -36,38 +35,40 @@ export const WeatherForecastState: React.FunctionComponent = ({children}) => {
         const {lat, lon} = city.coordinates
         const url: string = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${keyAPI}`;
         const result = await fetch(url)
-        const data = await result.json()
-        console.log(data.daily)
+        const weathers = await result.json()
+        weathers.daily.length = 7
+        const selectedCity = city
+        console.log(weathers.daily[0].weather[0].icon, selectedCity)
 
         // setData(data.daily)
         //@ts-ignore
         dispatch({
             type: GET_WEATHERS,
-            payload: data.daily
+            payload: weathers.daily
+        })
+
+        // @ts-ignore
+        dispatch({
+            type: SELECT_CITY,
+            payload: selectedCity
         })
     }
-    // const getForecast = async value => {
-    //     setLoading()
-    //     dispatch({
-    //         type: GET_WEATHERS,
-    //         payload: []
-    //     })
-    // }
 
     const clearWeathers = () => {
         console.log("clear_weather");
         //@ts-ignore
         return dispatch({type: CLEAR_WEATHERS})}
+
         //@ts-ignore
     const setLoading = () => dispatch({type: SET_LOADING})
 
-    const {selectedCity, selectedDate, loading, forecast} = state
+    const {selectedCity, selectedDate, loading, weathers} = state
 
     return (
         <WeatherForecastContext.Provider
             value = {{
             setLoading, fetchWeatherData, clearWeathers,
-            selectedCity, selectedDate, loading, forecast
+                selectedCity, selectedDate, loading, weathers
         }}>
             {children}
         </WeatherForecastContext.Provider>

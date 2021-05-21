@@ -22,7 +22,7 @@
     min-height: 210px;
     background: url("../../img/preview-img-bg.svg") no-repeat;
     background-position-x: center;
-    display: none;
+    display: flex;
     align-items: flex-end;
     justify-content: center;
 }
