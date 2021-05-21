@@ -7,6 +7,20 @@ import {log} from "util";
 // const CLIENT_KEY = process.env.REACT_APP_CLIENT_KEY
 const keyAPI: string = '3271c2ed7c22a57273a4549fd585d36f'
 
+type WeatherForecastState = {
+    selectedCity?: {
+        id: string;
+        name: string;
+        coordinates: {
+            lat: string;
+            lon: string;
+        }
+    };
+    selectedDate: string;
+    loading: boolean;
+    forecast: any[]
+}
+
 export const WeatherForecastState: React.FunctionComponent = ({children}) => {
     const initialState: WeatherForecastState = {
         selectedCity: undefined,
@@ -40,18 +54,43 @@ export const WeatherForecastState: React.FunctionComponent = ({children}) => {
     //     })
     // }
 
-    const clearWeathers = () => dispatch({type: CLEAR_WEATHERS})
-
+    const clearWeathers = () => {
+        console.log("clear_weather");
+        //@ts-ignore
+        return dispatch({type: CLEAR_WEATHERS})}
+        //@ts-ignore
     const setLoading = () => dispatch({type: SET_LOADING})
 
     const {selectedCity, selectedDate, loading, forecast} = state
 
     return (
-        <OpenweathermapContext value = {{
+        <WeatherForecastContext.Provider
+            value = {{
             setLoading, fetchWeatherData, clearWeathers,
             selectedCity, selectedDate, loading, forecast
         }}>
             {children}
-        </OpenweathermapContext>
+        </WeatherForecastContext.Provider>
     )
 }
+
+
+// click - handler - dispatch(action) - reducer(prevState, action) - (new)state
+
+/*
+<... onclick={handler}>
+            ↓
+const handler = () => {
+    dispatch(resetCountAction)
+}
+            ↓
+const resetCountAction = {
+    type: 'RESET_COUNT'
+}
+            ↓
+reducer = (state, action) => {
+    if (action.type === 'RESET_COUNT) {
+        return {..state, count: 0}          ←   (new)state
+    }
+*/
+

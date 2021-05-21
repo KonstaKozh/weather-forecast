@@ -1,18 +1,19 @@
-import React, {useState} from "react"
+import React, {useContext, useState} from "react"
 import './SelectCity.css'
 import {cities} from '../../cityData.json'
 import {WeatherForecastContext} from "../../context/weatherForecast/weatherForecastContext";
 
 
 export const SelectCity: React.FunctionComponent = () => {
-
+        const context = useContext(WeatherForecastContext);
     // const [loading, setLoading] = useState(false)
     const [data, setData] = useState({})
     // const keyAPI: string = '3271c2ed7c22a57273a4549fd585d36f'
 
     const handleCitySelect = (e: any) => {
         const selectedCity = cities[e.target.value]
-        fetchWeatherData(selectedCity)
+        // @ts-ignore
+        context.fetchWeatherData(selectedCity)
     }
 
     // const fetchWeatherData = async (city: { name?: string; id?: number; coordinates: any }) => {
