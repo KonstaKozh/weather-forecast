@@ -5,10 +5,15 @@ import {WeatherForecastContext} from "../../context/weatherForecast/weatherForec
 
 export const ForecastCardList: React.FunctionComponent = () => {
     const {loading, weathers, selectedCity} = useContext(WeatherForecastContext)
-    const [count, setCount] = useState(0);
+    let [count, setCount] = useState(0);
 
-    const weathersThree = weathers.slice(count, count+3) //менять эти значения по клику на <>
-
+    if (count < 0) {
+        count = 0
+    }
+    if (count > 4) {
+        count = 4
+    }
+    const weathersThree = weathers.slice(count, count + 3)
 
     return (
         <>
@@ -17,9 +22,11 @@ export const ForecastCardList: React.FunctionComponent = () => {
                     {loading
                         ? <p className='loading'>Загрузка...</p>
                         : <>
-                            <button className='weather-card-list__arrow-left' onClick={() => setCount(count + 1)}></button>
+                            <button className='weather-card-list__arrow-left'
+                                    onClick={() => setCount(count + 1)}></button>
                             {weathersThree.map((card: any) => (<ForecastCardItem cardInfo={card} key={card.dt}/>))}
-                            <button className='weather-card-list__arrow-right' onClick={() => setCount(count - 1)}></button>
+                            <button className='weather-card-list__arrow-right'
+                                    onClick={() => setCount(count - 1)}></button>
                         </>
                     }
 
