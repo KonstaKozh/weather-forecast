@@ -22,11 +22,18 @@ export const ForecastCardList: React.FunctionComponent = () => {
                     {loading
                         ? <p className='loading'>Загрузка...</p>
                         : <>
-                            <button className='weather-card-list__arrow-left'
-                                    onClick={() => setCount(count + 1)}></button>
+                            {(count === 0)
+                                ? null
+                                : <button className='weather-card-list__arrow-left'
+                                onClick={() => setCount(count - 1)}/>
+                            }
+
                             {weathersThree.map((card: any) => (<ForecastCardItem cardInfo={card} key={card.dt}/>))}
-                            <button className='weather-card-list__arrow-right'
-                                    onClick={() => setCount(count - 1)}></button>
+                            {(count > 3)
+                                ? null
+                                : <button className='weather-card-list__arrow-right'
+                                          onClick={() => setCount(count + 1)}/>
+                            }
                         </>
                     }
 
