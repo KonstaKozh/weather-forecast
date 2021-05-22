@@ -10,13 +10,15 @@ export const SelectedDate: React.FunctionComponent = () => {
     // }
     // const currentDate = `${selectedDate.getFullYear()}-0${selectedDate.getMonth()}-0${selectedDate.getDay()}`
     const currentDate = Date.now()
+    // @ts-ignore
+    const {selectedCity} = context;
 
 
     const handleDataSelect = (e: any) => {
         const selectedDate = e.target.value
         console.log('onChange', e, selectedDate, currentDate)
         // @ts-ignore
-        context.fetchWeatherDate(selectedDate)
+        context.fetchWeatherDate(selectedCity, selectedDate)
     }
 
     return (

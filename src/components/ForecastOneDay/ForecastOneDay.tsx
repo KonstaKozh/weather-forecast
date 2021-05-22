@@ -11,7 +11,7 @@ export const ForecastOneDay: React.FunctionComponent = () => {
             <SelectCity />
             <SelectedDate />
         </form>
-        <ForecastCardItem/>
+        {/*<ForecastCardItem/>*/}
         <div className='weather-card-blank weather-card-blank-oneday'>
             <p className='weather-card-blank__p'>Fill in all the fields and the weather will be displayed</p>
         </div>

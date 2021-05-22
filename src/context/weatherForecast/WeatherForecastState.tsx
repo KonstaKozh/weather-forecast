@@ -39,6 +39,7 @@ export const WeatherForecastState: React.FunctionComponent = ({children}) => {
         weathers.daily.length = 7
         const selectedCity = city
         console.log(weathers.daily[0].weather[0].icon, selectedCity)
+        console.log(weathers)
 
         // setData(data.daily)
         //@ts-ignore
@@ -63,6 +64,7 @@ export const WeatherForecastState: React.FunctionComponent = ({children}) => {
         weathers.daily.length = 7
         const selectedCity = city
         console.log(weathers.daily[0].weather[0].icon, selectedCity)
+        console.log(weathers)
 
         // setData(data.daily)
         //@ts-ignore
