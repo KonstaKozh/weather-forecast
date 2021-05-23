@@ -7,14 +7,16 @@ const handlers = {
     // @ts-ignore
     [SELECT_CITY_ONE_INDEX]: (state, {payload}) => ({...state, selectedCityOneIndex: payload}),
     // @ts-ignore
-    [GET_WEATHERS]: (state, {payload}) => ({...state, weathers: payload, loading: false}),
+    [GET_WEATHERS]: (state, {payload}) => ({...state, weathers: payload}),
     // @ts-ignore
     [GET_WEATHER]: (state, {payload}) => ({...state, weather: payload}),
 
     // @ts-ignore
     [SET_LOADING]: state => ({...state, loading: true}),
     // @ts-ignore
-    [CLEAR_WEATHERS]: state => ({...state, weathers: []}),
+    [SET_STOP_LOADING]: state => ({...state, loading: false}),
+    // @ts-ignore
+    [SELECT_DATE]: (state, {payload}) => ({...state, selectedDate: payload}),
     // @ts-ignore
     DEFAULT: state => state
 }

@@ -1,16 +1,24 @@
-import React, {useContext, useState} from "react"
+import React, {useContext, useState, useEffect} from "react"
 import {ForecastCardItem} from "../ForecastCardItem/ForecastCardItem";
 import './ForecastCardList.css'
 import {WeatherForecastContext} from "../../context/weatherForecast/weatherForecastContext";
+import {getCityByIndex} from "../../utils"
 
 export const ForecastCardList: React.FunctionComponent = () => {
-    const {loading, weathers, selectedCity} = useContext(WeatherForecastContext)
-    let [count, setCount] = useState(0);
-    const weathersThree = weathers.slice(count, count + 3)
+    const {loading, weathers, selectedCityIndex, getSevenDaysForecast} = useContext(WeatherForecastContext)
+    const [count, setCount] = useState(0);
+    const weathersThree = weathers && weathers.slice(count, count + 3)
+
+    useEffect(() => {
+        if (selectedCityIndex) {
+            const selectedCity = getCityByIndex(selectedCityIndex)
+            getSevenDaysForecast(selectedCity.coordinates)
+        }
+    }, [selectedCityIndex])
 
     return (
         <>
-            {selectedCity
+            {selectedCityIndex
                 ? <div className='weather-card-list'>
                     {loading
                         ? <p className='loading'>Загрузка...</p>

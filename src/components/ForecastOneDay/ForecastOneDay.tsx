@@ -3,6 +3,8 @@ import {ForecastCardItemOne} from "../ForecastCardItem/ForecastCardItemOne"
 import {SelectDate} from "../SelectDate/SelectDate"
 import './ForecastOneDay.css'
 import {WeatherForecastContext} from "../../context/weatherForecast/weatherForecastContext";
+import {SelectCityOneContainer} from "../SelectCity/SelectCityOneContainer";
+import {getCityByIndex, formatDateToUnix} from "../../utils";
 
 export const ForecastOneDay: React.FunctionComponent = () => {
     const {loading, weather, selectedCityOneIndex, selectedDate, getOneDayForecast} = useContext(WeatherForecastContext)

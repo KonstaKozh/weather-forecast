@@ -78,14 +78,13 @@ export const WeatherForecastState: React.FunctionComponent = ({children}) => {
     }
 
 
-    const clearWeathers = () => {
-        console.log("clear_weather");
-        //@ts-ignore
-        return dispatch({type: CLEAR_WEATHERS})
-    }
+    //@ts-ignore
+    const selectDate = (date) => dispatch({type: SELECT_DATE, payload: date})
 
     //@ts-ignore
     const setLoading = () => dispatch({type: SET_LOADING})
+    //@ts-ignore
+    const setStopLoading = () => dispatch({type: SET_STOP_LOADING})
 
     const {selectedCityIndex, selectedCityOneIndex, selectedDate, loading, weathers, weather} = state
 
