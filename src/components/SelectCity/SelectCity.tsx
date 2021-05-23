@@ -5,8 +5,7 @@ import {WeatherForecastContext} from "../../context/weatherForecast/weatherForec
 
 
 export const SelectCity: React.FunctionComponent = () => {
-        const context = useContext(WeatherForecastContext)
-        // const [data, setData] = useState({})
+    const context = useContext(WeatherForecastContext)
 
     const handleCitySelect = (e: any) => {
         const selectedCity = cities[e.target.value]

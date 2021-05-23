@@ -12,9 +12,11 @@ export const SelectDate: React.FunctionComponent = () => {
 
     const handleDataSelect = (e: any) => {
         const selectedDate = e.target.valueAsNumber/1000
+
         console.log('onChange', e, "selectedDate-", selectedDate, currentDate)
         // @ts-ignore
-        context.fetchWeatherDate(selectedCity, selectedDate)
+        if (selectedCity !== undefined) {context.fetchWeatherDate(selectedCity, selectedDate)}
+
     }
 
     return (

@@ -23,7 +23,7 @@ type WeatherForecastState = {
 export const WeatherForecastState: React.FunctionComponent = ({children}) => {
     const initialState: WeatherForecastState = {
         selectedCity: undefined,
-        selectedDate: new Date(),
+        selectedDate: new Date('0'),
         loading: false,
         weathers: []
     }
@@ -41,7 +41,6 @@ export const WeatherForecastState: React.FunctionComponent = ({children}) => {
         console.log(weathers.daily[0].weather[0].icon, selectedCity)
         console.log(weathers)
 
-        // setData(data.daily)
         //@ts-ignore
         dispatch({
             type: GET_WEATHERS,
@@ -65,13 +64,11 @@ export const WeatherForecastState: React.FunctionComponent = ({children}) => {
         const selectedCity = city
         console.log("weather-", weather, result)
 
-        // setData(data.daily)
         //@ts-ignore
         dispatch({
             type: GET_WEATHERS,
             payload: weather
         })
-
         // @ts-ignore
         dispatch({
             type: SELECT_CITY,

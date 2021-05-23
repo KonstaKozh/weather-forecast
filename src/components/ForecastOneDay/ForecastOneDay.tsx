@@ -8,7 +8,7 @@ import {WeatherForecastContext} from "../../context/weatherForecast/weatherForec
 export const ForecastOneDay: React.FunctionComponent = () => {
     const {loading, weathers, selectedCity, selectedDate} = useContext(WeatherForecastContext)
     const weatherOne = weathers[0]
-    console.log(weathers, weatherOne)
+    console.log(weathers, weatherOne, selectedDate, new Date('0'))
 
     return (
         <div className='forecast-container'>
@@ -18,7 +18,7 @@ export const ForecastOneDay: React.FunctionComponent = () => {
                 <SelectDate/>
             </form>
             {/*// @ts-ignore*/}
-            {selectedCity && selectedDate
+            {selectedCity && (selectedDate === new Date('0'))
                 ? <ForecastCardItem cardInfo={weatherOne} key={weatherOne.dt}/>
                 : <div className='weather-card-blank'>
                     <p className='weather-card-blank__p'>Fill in all the fields and the weather will be displayed</p>
