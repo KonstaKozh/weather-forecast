@@ -33,7 +33,7 @@ export const WeatherForecastState: React.FunctionComponent = ({children}) => {
     const fetchWeatherCity = async (city: { name?: string; id?: number; coordinates: any }) => {
         setLoading()
         const {lat, lon} = city.coordinates
-        const url: string = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${keyAPI}`;
+        const url: string = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${keyAPI}`
         const result = await fetch(url)
         const weathers = await result.json()
         weathers.daily.length = 7
@@ -55,22 +55,21 @@ export const WeatherForecastState: React.FunctionComponent = ({children}) => {
         })
     }
 
-    const fetchWeatherDate = async (city: { name?: string; id?: number; coordinates: any }) => {
+    const fetchWeatherDate = async (city: { name?: string; id?: number; coordinates: any }, date: number) => {
         setLoading()
         const {lat, lon} = city.coordinates
-        const url: string = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${keyAPI}`;
+        console.log(city, date)
+        const url: string = `https://api.openweathermap.org/data/2.5/onecall/timemachine?lat=${lat}&lon=${lon}&dt={date}&appid=${keyAPI}`
         const result = await fetch(url)
-        const weathers = await result.json()
-        weathers.daily.length = 7
+        const weather = await result.json()
         const selectedCity = city
-        console.log(weathers.daily[0].weather[0].icon, selectedCity)
-        console.log(weathers)
+        console.log("weather-", weather, result)
 
         // setData(data.daily)
         //@ts-ignore
         dispatch({
             type: GET_WEATHERS,
-            payload: weathers.daily
+            payload: weather
         })
 
         // @ts-ignore
@@ -79,25 +78,24 @@ export const WeatherForecastState: React.FunctionComponent = ({children}) => {
             payload: selectedCity
         })
     }
-
-
 
     const clearWeathers = () => {
         console.log("clear_weather");
         //@ts-ignore
-        return dispatch({type: CLEAR_WEATHERS})}
+        return dispatch({type: CLEAR_WEATHERS})
+    }
 
-        //@ts-ignore
+    //@ts-ignore
     const setLoading = () => dispatch({type: SET_LOADING})
 
     const {selectedCity, selectedDate, loading, weathers} = state
 
     return (
         <WeatherForecastContext.Provider
-            value = {{
-            setLoading, fetchWeatherCity, clearWeathers,
+            value={{
+                setLoading, fetchWeatherCity, fetchWeatherDate, clearWeathers,
                 selectedCity, selectedDate, loading, weathers
-        }}>
+            }}>
             {children}
         </WeatherForecastContext.Provider>
     )

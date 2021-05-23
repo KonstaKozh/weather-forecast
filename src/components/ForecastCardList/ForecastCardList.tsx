@@ -6,13 +6,6 @@ import {WeatherForecastContext} from "../../context/weatherForecast/weatherForec
 export const ForecastCardList: React.FunctionComponent = () => {
     const {loading, weathers, selectedCity} = useContext(WeatherForecastContext)
     let [count, setCount] = useState(0);
-
-    if (count < 0) {
-        count = 0
-    }
-    if (count > 4) {
-        count = 4
-    }
     const weathersThree = weathers.slice(count, count + 3)
 
     return (
@@ -25,7 +18,7 @@ export const ForecastCardList: React.FunctionComponent = () => {
                             {(count === 0)
                                 ? null
                                 : <button className='weather-card-list__arrow-left'
-                                onClick={() => setCount(count - 1)}/>
+                                          onClick={() => setCount(count - 1)}/>
                             }
 
                             {weathersThree.map((card: any) => (<ForecastCardItem cardInfo={card} key={card.dt}/>))}
@@ -36,7 +29,6 @@ export const ForecastCardList: React.FunctionComponent = () => {
                             }
                         </>
                     }
-
                 </div>
                 : <div className='weather-card-blank'>
                     <p className='weather-card-blank__p'>Fill in all the fields and the weather will be displayed</p>
