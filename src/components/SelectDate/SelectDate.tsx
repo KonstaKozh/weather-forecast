@@ -6,17 +6,9 @@ export const SelectDate: React.FunctionComponent = () => {
     const context = useContext(WeatherForecastContext)
     const [selectedDate, setDate] = useState(new Date())
     const currentDate = Date.now()
-    // @ts-ignore
-    const {selectedCity} = context;
 
-
-    const handleDataSelect = (e: any) => {
-        const selectedDate = e.target.valueAsNumber/1000
-
-        console.log('onChange', e, "selectedDate-", selectedDate, currentDate)
-        // @ts-ignore
-        if (selectedCity !== undefined) {context.fetchWeatherDate(selectedCity, selectedDate)}
-
+ const handleDateSelect = (e: ChangeEvent<HTMLInputElement>) => {
+        selectDate(e.target.value)
     }
 
     return (

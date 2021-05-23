@@ -5,18 +5,17 @@ import {icons} from '../../icons.json'
 import {WeatherForecastContext} from "../../context/weatherForecast/weatherForecastContext";
 import {convertKelvinToCelsius, formatDate} from "../../utils";
 
-export const ForecastCardItem: any = ({cardInfo}:any) => {
-    console.log('cardInfo-', cardInfo)
+export const ForecastCardItemOne: any = ({cardInfo}: any) => {
     // @ts-ignore
 
 
             const date = formatDate(cardInfo.dt)
-            const icon = cardInfo.weather[0].icon
-            const temp = convertKelvinToCelsius(cardInfo.temp.day)
+            const icon = cardInfo.weather.icon
+            const temp = convertKelvinToCelsius(cardInfo.temp)
 
 
 
-
+console.log(cardInfo)
     console.log('date-', date, 'icon-', icon, 'temp-', temp)
 
 
@@ -24,7 +23,7 @@ export const ForecastCardItem: any = ({cardInfo}:any) => {
         <div className='weather-card-item'>
             <time className='time'>{date}</time>
             {/* @ts-ignore */}
-            <img className='weather-icon' src={icons[icon].url} alt={icons[icon].alt}/>
+            <img className='weather-icon' src={icons[icon]?.url} alt={icons[icon]?.alt || "weather-icon"}/>
             <p className='temperature'>{`${temp}`}&deg;</p>
         </div>
     )

@@ -1,11 +1,16 @@
 import React from "react";
-import {CLEAR_WEATHERS, GET_WEATHERS, SELECT_CITY, SET_LOADING} from "../type";
+import {SELECT_DATE, GET_WEATHERS, GET_WEATHER, SELECT_CITY_INDEX, SET_LOADING, SET_STOP_LOADING, SELECT_CITY_ONE_INDEX} from "../type";
 
 const handlers = {
     // @ts-ignore
-    [SELECT_CITY]: (state, {payload}) => ({...state, selectedCity: payload, loading: false}),
+    [SELECT_CITY_INDEX]: (state, {payload}) => ({...state, selectedCityIndex: payload}),
+    // @ts-ignore
+    [SELECT_CITY_ONE_INDEX]: (state, {payload}) => ({...state, selectedCityOneIndex: payload}),
     // @ts-ignore
     [GET_WEATHERS]: (state, {payload}) => ({...state, weathers: payload, loading: false}),
+    // @ts-ignore
+    [GET_WEATHER]: (state, {payload}) => ({...state, weather: payload}),
+
     // @ts-ignore
     [SET_LOADING]: state => ({...state, loading: true}),
     // @ts-ignore

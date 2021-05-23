@@ -1,25 +1,30 @@
-import React, {useContext} from "react"
-import {ForecastCardItem} from "../ForecastCardItem/ForecastCardItem"
-import {SelectDate} from "../SelectDate/SelectDate";
-import {SelectCity} from "../SelectCity/SelectCity";
+import React, {useContext, useEffect} from "react"
+import {ForecastCardItemOne} from "../ForecastCardItem/ForecastCardItemOne"
+import {SelectDate} from "../SelectDate/SelectDate"
 import './ForecastOneDay.css'
 import {WeatherForecastContext} from "../../context/weatherForecast/weatherForecastContext";
 
 export const ForecastOneDay: React.FunctionComponent = () => {
-    const {loading, weathers, selectedCity, selectedDate} = useContext(WeatherForecastContext)
-    const weatherOne = weathers[0]
-    console.log(weathers, weatherOne, selectedDate, new Date('0'))
+    const {loading, weather, selectedCityOneIndex, selectedDate, getOneDayForecast} = useContext(WeatherForecastContext)
+    console.log(weather);
+    useEffect(() => {
+        if (selectedCityOneIndex && selectedDate) {
+            const selectedCity = getCityByIndex(selectedCityOneIndex)
+            const formattedDate = formatDateToUnix(selectedDate)
+            getOneDayForecast(selectedCity.coordinates, formattedDate)
+        }
+    },[selectedCityOneIndex, selectedDate])
 
     return (
         <div className='forecast-container'>
             <h2 className='forecast-container__h2'>Forecast for a Date in the Past</h2>
             <form action="#" className='form-box'>
-                <SelectCity/>
+                <SelectCityOneContainer/>
                 <SelectDate/>
             </form>
             {/*// @ts-ignore*/}
-            {selectedCity && (selectedDate === new Date('0'))
-                ? <ForecastCardItem cardInfo={weatherOne} key={weatherOne.dt}/>
+            {weather
+                ? <ForecastCardItemOne cardInfo={weather}/>
                 : <div className='weather-card-blank'>
                     <p className='weather-card-blank__p'>Fill in all the fields and the weather will be displayed</p>
                 </div>

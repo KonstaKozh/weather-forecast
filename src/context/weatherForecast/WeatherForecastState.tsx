@@ -1,80 +1,82 @@
 import React, {useReducer} from "react"
 import {WeatherForecastContext} from "./weatherForecastContext";
 import {weatherForecastReducer} from "./weatherForecastReducer";
-import {CLEAR_WEATHERS, GET_WEATHERS, SET_LOADING, SELECT_CITY} from "../type";
+import {SELECT_DATE, GET_WEATHERS, GET_WEATHER, SET_LOADING, SET_STOP_LOADING, SELECT_CITY_INDEX, SELECT_CITY_ONE_INDEX} from "../type";
+import {fetchSevenDaysForecast, fetchOneDayForecast} from "../../api/requests";
+import {Coordinates} from "../../types";
 
 // const CLIENT_KEY = process.env.REACT_APP_CLIENT_KEY
 const keyAPI: string = '3271c2ed7c22a57273a4549fd585d36f'
 
 type WeatherForecastState = {
-    selectedCity?: {
-        id: string;
-        name: string;
-        coordinates: {
-            lat: string;
-            lon: string;
-        }
-    };
-    selectedDate: Date;
-    loading: boolean;
+    selectedCityIndex?: number
+    selectedCityOneIndex?: number
+    selectedDate: Date
+    loading: boolean
     weathers: []
+    weather: any
 }
 
 export const WeatherForecastState: React.FunctionComponent = ({children}) => {
     const initialState: WeatherForecastState = {
-        selectedCity: undefined,
-        selectedDate: new Date('0'),
+        selectedCityIndex: undefined,
+        selectedCityOneIndex: undefined,
+        selectedDate: new Date(0),
         loading: false,
-        weathers: []
+        weathers: [],
+        weather: null
     }
     // @ts-ignore
     const [state, dispatch] = useReducer(weatherForecastReducer, initialState)
 
-    const fetchWeatherCity = async (city: { name?: string; id?: number; coordinates: any }) => {
-        setLoading()
-        const {lat, lon} = city.coordinates
-        const url: string = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${keyAPI}`
-        const result = await fetch(url)
-        const weathers = await result.json()
-        weathers.daily.length = 7
-        const selectedCity = city
-        console.log(weathers.daily[0].weather[0].icon, selectedCity)
-        console.log(weathers)
-
+    const selectCityIndex = (index: number) => {
         //@ts-ignore
         dispatch({
-            type: GET_WEATHERS,
-            payload: weathers.daily
-        })
-
-        // @ts-ignore
-        dispatch({
-            type: SELECT_CITY,
-            payload: selectedCity
+            type: SELECT_CITY_INDEX,
+            payload: index
         })
     }
 
-    const fetchWeatherDate = async (city: { name?: string; id?: number; coordinates: any }, date: number) => {
-        setLoading()
-        const {lat, lon} = city.coordinates
-        console.log(city, date)
-        const url: string = `https://api.openweathermap.org/data/2.5/onecall/timemachine?lat=${lat}&lon=${lon}&dt={date}&appid=${keyAPI}`
-        const result = await fetch(url)
-        const weather = await result.json()
-        const selectedCity = city
-        console.log("weather-", weather, result)
-
+    const selectCityOneIndex = (index: number) => {
         //@ts-ignore
         dispatch({
-            type: GET_WEATHERS,
-            payload: weather
-        })
-        // @ts-ignore
-        dispatch({
-            type: SELECT_CITY,
-            payload: selectedCity
+            type: SELECT_CITY_ONE_INDEX,
+            payload: index
         })
     }
+
+    const getSevenDaysForecast = async (coordinates: Coordinates) => {
+        try{
+            setLoading()
+            const sevenDaysForecast = await fetchSevenDaysForecast(coordinates)
+            //@ts-ignore
+            dispatch({
+                type: GET_WEATHERS,
+                payload: sevenDaysForecast
+            })
+            setStopLoading()
+        } catch (e) {
+            setStopLoading()
+            throw new Error(e.message)
+        }
+    }
+
+    const getOneDayForecast = async (coordinates: Coordinates, date: string) => {
+        try{
+            setLoading()
+            const oneDayForecast = await fetchOneDayForecast(coordinates, date)
+            //@ts-ignore
+            dispatch({
+                type: GET_WEATHER,
+                payload: oneDayForecast
+            })
+            setStopLoading()
+        } catch (e) {
+            setStopLoading()
+            throw new Error(e.message)
+        }
+    }
+
 
     const clearWeathers = () => {
         console.log("clear_weather");
@@ -85,13 +87,13 @@ export const WeatherForecastState: React.FunctionComponent = ({children}) => {
     //@ts-ignore
     const setLoading = () => dispatch({type: SET_LOADING})
 
-    const {selectedCity, selectedDate, loading, weathers} = state
+    const {selectedCityIndex, selectedCityOneIndex, selectedDate, loading, weathers, weather} = state
 
     return (
         <WeatherForecastContext.Provider
             value={{
-                setLoading, fetchWeatherCity, fetchWeatherDate, clearWeathers,
-                selectedCity, selectedDate, loading, weathers
+                getSevenDaysForecast, getOneDayForecast, selectCityIndex, selectCityOneIndex, selectDate,
+                selectedCityIndex, selectedCityOneIndex, selectedDate, loading, weathers, weather
             }}>
             {children}
         </WeatherForecastContext.Provider>
