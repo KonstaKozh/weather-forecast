@@ -1,7 +1,7 @@
 {
   "icons": {
     "01d": {
-      "url": "/images/01d@2x.png",
+      "url": "./images/01d@2x.png",
       "alt": "clear sky"
     },
     "02d": {
