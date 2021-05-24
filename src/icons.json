@@ -5,71 +5,71 @@
       "alt": "clear sky"
     },
     "02d": {
-      "url": "/images/02d@2x.png",
-      "alt": "\tfew clouds"
+      "url": "./images/02d@2x.png",
+      "alt": "few clouds"
     },
     "03d": {
-      "url": "/images/03d@2x.png",
+      "url": "./images/03d@2x.png",
       "alt": "scattered clouds"
     },
     "04d": {
-      "url": "/images/04d@2x.png",
+      "url": "./images/04d@2x.png",
       "alt": "broken clouds"
     },
     "09d": {
-      "url": "/images/09d@2x.png",
+      "url": "./images/09d@2x.png",
       "alt": "shower rain"
     },
     "10d": {
-      "url": "/images/10d@2x.png",
+      "url": "./images/10d@2x.png",
       "alt": "rain"
     },
     "11d": {
-      "url": "/images/11d@2x.png",
+      "url": "./images/11d@2x.png",
       "alt": "thunderstorm"
     },
     "13d": {
-      "url": "/images/13d@2x.png",
+      "url": "./images/13d@2x.png",
       "alt": "snow"
     },
     "50d": {
-      "url": "/images/50d@2x.png",
+      "url": "./images/50d@2x.png",
       "alt": "mist"
     },
     "01n": {
-      "url": "/images/01n@2x.png",
+      "url": "./images/01n@2x.png",
       "alt": "clear sky"
     },
     "02n": {
-      "url": "/images/02n@2x.png",
-      "alt": "\tfew clouds"
+      "url": "./images/02n@2x.png",
+      "alt": "few clouds"
     },
     "03n": {
-      "url": "/images/03n@2x.png",
+      "url": "./images/03n@2x.png",
       "alt": "scattered clouds"
     },
     "04n": {
-      "url": "/images/04n@2x.png",
+      "url": "./images/04n@2x.png",
       "alt": "broken clouds"
     },
     "09n": {
-      "url": "/images/09n@2x.png",
+      "url": "./images/09n@2x.png",
       "alt": "shower rain"
     },
     "10n": {
-      "url": "/images/10n@2x.png",
+      "url": "./images/10n@2x.png",
       "alt": "rain"
     },
     "11n": {
-      "url": "/images/11n@2x.png",
+      "url": "./images/11n@2x.png",
       "alt": "thunderstorm"
     },
     "13n": {
-      "url": "/images/13n@2x.png",
+      "url": "./images/13n@2x.png",
       "alt": "snow"
     },
     "50n": {
-      "url": "/images/50n@2x.png",
+      "url": "./images/50n@2x.png",
       "alt": "mist"
     }
   }
