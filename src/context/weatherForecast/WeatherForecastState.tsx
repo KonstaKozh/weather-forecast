@@ -1,12 +1,9 @@
 import React, {useReducer} from "react"
-import {WeatherForecastContext} from "./weatherForecastContext";
-import {weatherForecastReducer} from "./weatherForecastReducer";
-import {SELECT_DATE, GET_WEATHERS, GET_WEATHER, SET_LOADING, SET_STOP_LOADING, SELECT_CITY_INDEX, SELECT_CITY_ONE_INDEX} from "../type";
-import {fetchSevenDaysForecast, fetchOneDayForecast} from "../../api/requests";
-import {Coordinates} from "../../types";
-
-// const CLIENT_KEY = process.env.REACT_APP_CLIENT_KEY
-const keyAPI: string = '3271c2ed7c22a57273a4549fd585d36f'
+import {WeatherForecastContext} from "./weatherForecastContext"
+import {weatherForecastReducer} from "./weatherForecastReducer"
+import {SELECT_DATE, GET_WEATHERS, GET_WEATHER, SET_LOADING, SET_STOP_LOADING, SELECT_CITY_INDEX, SELECT_CITY_ONE_INDEX} from "../type"
+import {fetchSevenDaysForecast, fetchOneDayForecast} from "../../api/requests"
+import {Coordinates} from "../../types"
 
 type WeatherForecastState = {
     selectedCityIndex?: number
@@ -18,6 +15,7 @@ type WeatherForecastState = {
 }
 
 export const WeatherForecastState: React.FunctionComponent = ({children}) => {
+
     const initialState: WeatherForecastState = {
         selectedCityIndex: undefined,
         selectedCityOneIndex: undefined,
@@ -77,12 +75,12 @@ export const WeatherForecastState: React.FunctionComponent = ({children}) => {
         }
     }
 
-
     //@ts-ignore
     const selectDate = (date) => dispatch({type: SELECT_DATE, payload: date})
 
     //@ts-ignore
     const setLoading = () => dispatch({type: SET_LOADING})
+
     //@ts-ignore
     const setStopLoading = () => dispatch({type: SET_STOP_LOADING})
 
@@ -99,23 +97,4 @@ export const WeatherForecastState: React.FunctionComponent = ({children}) => {
     )
 }
 
-
-// click - handler - dispatch(action) - reducer(prevState, action) - (new)state
-
-/*
-<... onclick={handler}>
-            ↓
-const handler = () => {
-    dispatch(resetCountAction)
-}
-            ↓
-const resetCountAction = {
-    type: 'RESET_COUNT'
-}
-            ↓
-reducer = (state, action) => {
-    if (action.type === 'RESET_COUNT) {
-        return {..state, count: 0}          ←   (new)state
-    }
-*/
 

@@ -1,9 +1,5 @@
-import {API_SEVEN_DAYS_URL, API_ONE_DAY_URL, API_KEY} from "./consts";
-import {Coordinates} from "../types";
-
-type SevenDaysForecastType = {
-
-}
+import {API_SEVEN_DAYS_URL, API_ONE_DAY_URL, API_KEY} from "./consts"
+import {Coordinates} from "../types"
 
 export const fetchSevenDaysForecast = async (coordinates: Coordinates): Promise<any>  => {
     try {

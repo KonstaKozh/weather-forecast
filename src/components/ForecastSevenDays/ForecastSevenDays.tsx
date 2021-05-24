@@ -1,7 +1,7 @@
 import React from 'react'
 import {ForecastCardList} from "../ForecastCardList/ForecastCardList"
 import './ForecastSevenDays.css'
-import {SelectCityContainer} from "../SelectCity/SelectCityContainer";
+import {SelectCityContainer} from "../SelectCity/SelectCityContainer"
 
 export const ForecastSevenDays: React.FunctionComponent = () => {
 

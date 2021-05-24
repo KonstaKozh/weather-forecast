@@ -1,5 +1,5 @@
-import React from "react";
-import {SELECT_DATE, GET_WEATHERS, GET_WEATHER, SELECT_CITY_INDEX, SET_LOADING, SET_STOP_LOADING, SELECT_CITY_ONE_INDEX} from "../type";
+import React from "react"
+import {SELECT_DATE, GET_WEATHERS, GET_WEATHER, SELECT_CITY_INDEX, SET_LOADING, SET_STOP_LOADING, SELECT_CITY_ONE_INDEX} from "../type"
 
 const handlers = {
     // @ts-ignore

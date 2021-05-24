@@ -2,12 +2,13 @@ import React, {ChangeEvent, FunctionComponent} from "react"
 import './SelectCity.css'
 
 type SelectCityProps = {
-    value?: number;
-    cities: any[];
-    onChange: (value: number) => void;
+    value?: number
+    cities: any[]
+    onChange: (value: number) => void
 }
 
 export const SelectCity: FunctionComponent<SelectCityProps> = ({value, cities, onChange}) => {
+
     const handleCitySelect = (e: ChangeEvent<HTMLSelectElement>) => {
         onChange(+e.target.value)
     }

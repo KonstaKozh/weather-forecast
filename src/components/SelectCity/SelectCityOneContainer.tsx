@@ -1,6 +1,6 @@
 import React, {useContext, FunctionComponent} from "react"
-import {WeatherForecastContext} from "../../context/weatherForecast/weatherForecastContext";
-import {SelectCity} from "./SelectCity";
+import {WeatherForecastContext} from "../../context/weatherForecast/weatherForecastContext"
+import {SelectCity} from "./SelectCity"
 import {cities} from "../../cityData.json"
 
 export const SelectCityOneContainer: FunctionComponent = () => {
@@ -8,6 +8,7 @@ export const SelectCityOneContainer: FunctionComponent = () => {
 
     const handleCitySelect = (value: number): void => {
         selectCityOneIndex(value);
+        console.log(value)
     }
 
     return <SelectCity value={selectedCityOneIndex} cities={cities} onChange={handleCitySelect}/>

@@ -2,6 +2,7 @@
     display: flex;
     justify-content: space-between;
     position: relative;
+    gap: 1em;
 }
 
 .weather-card-blank {
@@ -46,7 +47,7 @@
 }
 
 .loading {
-    min-height: 252px;
+    min-height: 272px;
     margin: 0 auto;
 }
 

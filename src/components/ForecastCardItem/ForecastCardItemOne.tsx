@@ -2,22 +2,14 @@ import React, {useContext, useEffect} from "react"
 import img from '../../img/light-rain-icon.svg'
 import './ForecastCardItem.css'
 import {icons} from '../../icons.json'
-import {WeatherForecastContext} from "../../context/weatherForecast/weatherForecastContext";
-import {convertKelvinToCelsius, formatDate} from "../../utils";
+import {WeatherForecastContext} from "../../context/weatherForecast/weatherForecastContext"
+import {convertKelvinToCelsius, formatDate} from "../../utils"
 
 export const ForecastCardItemOne: any = ({cardInfo}: any) => {
     // @ts-ignore
-
-
-            const date = formatDate(cardInfo.dt)
-            const icon = cardInfo.weather.icon
-            const temp = convertKelvinToCelsius(cardInfo.temp)
-
-
-
-console.log(cardInfo)
-    console.log('date-', date, 'icon-', icon, 'temp-', temp)
-
+    const date = formatDate(cardInfo.dt)
+    const icon = cardInfo.weather[0].icon
+    const temp = convertKelvinToCelsius(cardInfo.temp)
 
     return (
         <div className='weather-card-item'>

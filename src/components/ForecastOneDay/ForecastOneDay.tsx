@@ -2,15 +2,16 @@ import React, {useContext, useEffect} from "react"
 import {ForecastCardItemOne} from "../ForecastCardItem/ForecastCardItemOne"
 import {SelectDate} from "../SelectDate/SelectDate"
 import './ForecastOneDay.css'
-import {WeatherForecastContext} from "../../context/weatherForecast/weatherForecastContext";
-import {SelectCityOneContainer} from "../SelectCity/SelectCityOneContainer";
-import {getCityByIndex, formatDateToUnix} from "../../utils";
+import {WeatherForecastContext} from "../../context/weatherForecast/weatherForecastContext"
+import {SelectCityOneContainer} from "../SelectCity/SelectCityOneContainer"
+import {getCityByIndex, formatDateToUnix} from "../../utils"
 
 export const ForecastOneDay: React.FunctionComponent = () => {
+
     const {loading, weather, selectedCityOneIndex, selectedDate, getOneDayForecast} = useContext(WeatherForecastContext)
-    console.log(weather);
+
     useEffect(() => {
-        if (selectedCityOneIndex && selectedDate) {
+        if ((selectedCityOneIndex >= 0) && selectedDate) {
             const selectedCity = getCityByIndex(selectedCityOneIndex)
             const formattedDate = formatDateToUnix(selectedDate)
             getOneDayForecast(selectedCity.coordinates, formattedDate)
