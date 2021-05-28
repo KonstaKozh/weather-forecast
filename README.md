@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-[Ссылка на приложение](https://konstakozh.github.io/weather-forecast/public/)
+[Ссылка на приложение](https://konstakozh.github.io/weather-forecast/public/) https://konstakozh.github.io/weather-forecast/public/
 
 Не исправлено:
 - [ ] слайдер для мобильных устройств в компоненте 7-days работает пока только на 3 дня (как исправить пока не придумал)
@@ -14,4 +14,5 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - [ ] не сделан плейсхолдер к селекту выбора даты (не знаю как сделать простым способом)
 - [ ] c TypesScript ранее не работал (много заглушек)
 - [ ] не произвел оптимизацию производительности (не успел)
+ 
 - [ ] не организована обработка ошибок (не успел)
