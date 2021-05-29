@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-[Ссылка на приложение](https://konstakozh.github.io/weather-forecast/public/) https://konstakozh.github.io/weather-forecast/public/
+[Ссылка на приложение](https://konstakozh.github.io/weather-forecast/build/) https://konstakozh.github.io/weather-forecast/build/
 
 Требуется исправить:
 - [ ] слайдер для мобильных устройств в компоненте 7-days работает пока только на 3 дня (как исправить пока не придумал)
