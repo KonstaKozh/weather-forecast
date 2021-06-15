@@ -1,0 +1,1 @@
+filter<T>(predicate: (element: T) => boolean, collection: T[]): T[];
