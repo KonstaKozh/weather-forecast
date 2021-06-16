@@ -5,10 +5,11 @@ let i
 const mapCallback = (i) => i + i
 const mapArrayNew = []
 const reducer = (mapArrayNew, currentValue) => {
-    mapCallback(currentValue)
+    console.log(mapArrayNew, currentValue)
+    return mapArrayNew.push(mapCallback(currentValue))
 }
 
-console.log(mapArray.reduce(reducer))
+console.log(mapArray.reduce(reducer, mapArrayNew))
 
 // const mapFunctionNew = (mapArray, mapCallback) => {
 //     mapArray.reduce((mapArrayNew, currentValue) => {
