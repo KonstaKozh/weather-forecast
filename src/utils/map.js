@@ -4,19 +4,8 @@ const mapArray = [1, 2, 3, 4]
 let i
 const mapCallback = (i) => i + i
 const mapArrayNew = []
-const reducer = (mapArrayNew, currentValue) => {
-    console.log(mapArrayNew, currentValue)
-    return mapArrayNew.push(mapCallback(currentValue))
-}
 
-console.log(mapArray.reduce(reducer, mapArrayNew))
+const mapFunctionNew = (mapArray, mapCallback) => mapArray.reduce(
+    (mapArrayNew, currentValue) => [...mapArrayNew, mapCallback(currentValue)], [])
 
-// const mapFunctionNew = (mapArray, mapCallback) => {
-//     mapArray.reduce((mapArrayNew, currentValue) => {
-//         console.log(mapArrayNew, mapCallback(currentValue))
-//         return mapArrayNew.push(mapCallback(currentValue))
-//     })
-//     // return mapArrayNew
-// }
-
-// console.log(mapFunctionNew(mapArray, mapCallback))
+console.log(mapFunctionNew(mapArray, mapCallback))
